@@ -460,7 +460,7 @@ persistence:
     - ReadWriteOnce
   ## @param persistence.size PVC Storage Request for HashiCorp Consul data volume
   ##
-  size: 3Gi
+  size: 2Gi
 
 ## @section Volume Permissions parameters
 
