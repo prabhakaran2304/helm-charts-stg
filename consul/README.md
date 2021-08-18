@@ -18,6 +18,17 @@ data-vault-consul-consul-server-3
 data-vault-consul-consul-server-4
 ```
 
+You can use kubectl exec to get direct access to any container, including the Consul server. Use this command to check for a list of Consul's servers and clients. Consul servers configure and control the service mesh, while clients help with service discovery.
+
+```
+kubectl exec -it -n consul consulsrv-0 -- consul members
+Defaulted container "consul" out of: consul, volume-permissions (init)
+Node         Address              Status  Type    Build   Protocol  DC   Segment
+consulsrv-0  192.168.249.40:8301  alive   server  1.10.1  2         dc1  <all>
+consulsrv-1  192.168.54.200:8301  alive   server  1.10.1  2         dc1  <all>
+consulsrv-2  192.168.215.74:8301  alive   server  1.10.1  2         dc1  <all>
+```
+
 # Interact with Consul
 To access the Consul UI, set up port forwarding to port 18500.
 
