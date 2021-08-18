@@ -18,7 +18,12 @@ data-vault-consul-consul-server-3
 data-vault-consul-consul-server-4
 ```
 
+# Interact with Consul
+To access the Consul UI, set up port forwarding to port 18500.
 
+```kubectl port-forward service/consul-ui 18500:80 --address 0.0.0.0```
+
+Then, go to http://localhost:18500 in your browser. Explore the Consul UI by examining the "Nodes" and "Services" tabs.
 
 # HashiCorp Consul Helm Chart
 
