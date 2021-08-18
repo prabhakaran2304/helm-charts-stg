@@ -9,7 +9,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /home/infrausr/redis-cluster-master-0
+    path: /home/infrausr/consul
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -22,5 +22,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /home/infrausr/redis-cluster-slave-0
+    path: /home/infrausr/consul
 ---
