@@ -9,3 +9,6 @@ example:
 ```
 name: redis-data-redis-master-0
 ```
+```
+kubectl create -f redis-pv.yaml
+```
