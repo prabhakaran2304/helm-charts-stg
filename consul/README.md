@@ -25,6 +25,8 @@ To access the Consul UI, set up port forwarding to port 18500.
 
 Then, go to http://localhost:18500 in your browser. Explore the Consul UI by examining the "Nodes" and "Services" tabs.
 
+![Image of consul-ui-port-forward](https://github.com/prabhakaran2304/helm-charts-stg/blob/main/images/cosnul-ui-port-forward.PNG)
+
 # HashiCorp Consul Helm Chart
 
 [HashiCorp Consul](https://www.consul.io/) has multiple components, but as a whole, it is a tool for discovering and configuring services in your infrastructure
