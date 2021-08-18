@@ -450,7 +450,7 @@ persistence:
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
   ##
-  storageClass: ""
+  storageClass: "consul-sc"
   ## @param persistence.annotations Persistent Volume Claim annotations
   ##
   annotations: {}
@@ -460,7 +460,7 @@ persistence:
     - ReadWriteOnce
   ## @param persistence.size PVC Storage Request for HashiCorp Consul data volume
   ##
-  size: 8Gi
+  size: 3Gi
 
 ## @section Volume Permissions parameters
 
@@ -470,7 +470,7 @@ persistence:
 volumePermissions:
   ## @param volumePermissions.enabled Enable init container that changes the owner and group of the persistent volume
   ##
-  enabled: false
+  enabled: true
   ## Bitnami Shell image
   ## ref: https://hub.docker.com/r/bitnami/bitnami-shell/tags/
   ## @param volumePermissions.image.registry Bitnami Shell image registry
