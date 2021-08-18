@@ -2,6 +2,22 @@
 # consul storageclass - PV
 ``` data-<namepace>-<release-name>-consul-server-0 ```
 
+Predefined Persistent Volume Claims (PVCs)
+If running a self-hosted Kubernetes installation, you may need to pre-create the persistent volumes for the stateful set that the Consul servers run in.
+
+The only way to use a pre-created PVC is to name them in the format Kubernetes expects:
+
+```data-<kubernetes namespace>-<helm release name>-consul-server-<ordinal>```
+
+The Kubernetes namespace you are installing into, Helm release name, and ordinal must match between your Consul servers and your pre-created PVCs. You only need as many PVCs as you have Consul servers. For example, given a Kubernetes namespace of "vault," a release name of "consul," and 5 servers, you would need to create PVCs with the following names:
+
+```data-vault-consul-consul-server-0
+data-vault-consul-consul-server-1
+data-vault-consul-consul-server-2
+data-vault-consul-consul-server-3
+data-vault-consul-consul-server-4
+```
+
 
 
 # HashiCorp Consul Helm Chart
