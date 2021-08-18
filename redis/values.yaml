@@ -375,7 +375,7 @@ master:
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
     ## If undefined (the default) or set to null, no storageClassName spec is set, choosing the default provisioner
     ##
-    storageClass: "manual"
+    storageClass: "redis-sc"
     ## @param master.persistence.accessModes [array] Persistent Volume access modes
     ##
     accessModes:
@@ -396,7 +396,7 @@ master:
     ## @param master.persistence.existingClaim Use a existing PVC which must be created manually before bound
     ## NOTE: requires master.persistence.enabled: true
     ##
-    existingClaim: "redis-pv-volume"
+    existingClaim: ""
   ## Redis&trade; master service parameters
   ##
   service:
@@ -684,7 +684,7 @@ replica:
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
     ## If undefined (the default) or set to null, no storageClassName spec is set, choosing the default provisioner
     ##
-    storageClass: "manual"
+    storageClass: "redis-sc"
     ## @param replica.persistence.accessModes [array] Persistent Volume access modes
     ##
     accessModes:
