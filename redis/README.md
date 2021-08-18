@@ -23,8 +23,9 @@ helm uninstall redis bitnami/redis --namespace redis
 # Connect using the Redis CLI
 Now the service is ready to use and you can connect to your redis server with Redis CLI command.
 
-*redis-cluster-master for read/write operations*
-*redis-cluster-slave for read-only operations*
+_redis-master for read/write operations_
+
+_redis-slave for read-only operations_
 
 ```
 kubectl exec -it -n redis redis-master-0 bash
