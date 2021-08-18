@@ -12,3 +12,10 @@ name: redis-data-redis-master-0
 ```
 kubectl create -f redis-pv.yaml
 ```
+# value.yaml
+```
+helm install redis bitnami/redis --namespace redis -f values.yaml
+```
+```
+helm uninstall redis bitnami/redis --namespace redis
+```
