@@ -1,3 +1,9 @@
+
+# consul storageclass - PV
+``` data-<namepace>-<release-name>-consul-server-0 ```
+
+
+
 # HashiCorp Consul Helm Chart
 
 [HashiCorp Consul](https://www.consul.io/) has multiple components, but as a whole, it is a tool for discovering and configuring services in your infrastructure
@@ -417,53 +423,4 @@ Find more information about how to deal with common errors related to Bitnami’
 **Useful links**
 
 - https://docs.bitnami.com/tutorials/resolve-helm2-helm3-post-migration-issues/
-- https://helm.sh/docs/topics/v2_v3_migration/
-- https://helm.sh/blog/migrate-from-helm-v2-to-helm-v3/
 
-### To 8.0.0
-
-- Several parameters were renamed or disappeared in favor of new ones on this major version:
-  - `securityContext.*` is deprecated in favor of `podSecurityContext` and `containerSecurityContext`.
-  - `replicas` is renamed to `replicaCount`.
-  - `updateStrategy.type` is renamed to `updateStrategy`.
-  - `configmap` is renamed to `configuration`.
-- Chart labels were adapted to follow the [Helm charts standard labels](https://helm.sh/docs/chart_best_practices/labels/#standard-labels).
-- This version also introduces `bitnami/common`, a [library chart](https://helm.sh/docs/topics/library_charts/#helm) as a dependency. More documentation about this new utility could be found [here](https://github.com/bitnami/charts/tree/master/bitnami/common#bitnami-common-library-chart). Please, make sure that you have updated the chart dependencies before executing any upgrade.
-
-### To 7.0.0
-
-Consul pods are now deployed in parallel in order to bootstrap the cluster and be discovered.
-
-The field `podManagementPolicy` can't be updated in a StatefulSet, so you need to destroy it before you upgrade the chart to this version.
-
-```console
-$ kubectl delete statefulset consul
-$ helm upgrade <DEPLOYMENT_NAME> bitnami/consul
-```
-
-### To 6.0.0
-
-This release updates the Bitnami Consul container to `1.6.1-debian-9-r6`, which is based on Bash instead of Node.js.
-
-### To 3.1.0
-
-Consul container was moved to a non-root approach. There shouldn't be any issue when upgrading since the corresponding `securityContext` is enabled by default. Both the container image and the chart can be upgraded by running the command below:
-
-```
-$ helm upgrade my-release bitnami/consul
-```
-
-If you use a previous container image (previous to **1.4.0-r16**) disable the `securityContext` by running the command below:
-
-```
-$ helm upgrade my-release bitnami/consul --set securityContext.enabled=false,image.tag=XXX
-```
-
-### To 2.0.0
-
-Backwards compatibility is not guaranteed unless you modify the labels used on the chart's deployments.
-Use the workaround below to upgrade from versions previous to 2.0.0. The following example assumes that the release name is consul:
-
-```console
-$ kubectl delete statefulset consul --cascade=false
-```
