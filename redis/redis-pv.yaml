@@ -23,3 +23,29 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: /home/infrausr/redis-cluster-slave-0
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: redis-data-redis-slave-1
+spec:
+  storageClassName: redis-sc
+  capacity:
+    storage: 4Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /home/infrausr/redis-cluster-slave-1
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: redis-data-redis-slave-2
+spec:
+  storageClassName: redis-sc
+  capacity:
+    storage: 4Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /home/infrausr/redis-cluster-slave-2
