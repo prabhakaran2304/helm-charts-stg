@@ -448,14 +448,14 @@ persistence:
   enabled: true
   ## @param persistence.storageClass PVC Storage Class for ZooKeeper data volume
   ##
-  storageClass: ""
+  storageClass: "zookeeper-sc"
   ## @param persistence.accessModes PVC Access modes
   ##
   accessModes:
     - ReadWriteOnce
   ## @param persistence.size PVC Storage Request for ZooKeeper data volume
   ##
-  size: 8Gi
+  size: 1Gi
   ## @param persistence.annotations Annotations for the PVC
   ##
   annotations: {}
@@ -470,7 +470,7 @@ persistence:
   dataLogDir:
     ## @param persistence.dataLogDir.size PVC Storage Request for ZooKeeper's Data log directory
     ##
-    size: 8Gi
+    size: 1Gi
     ## @param persistence.dataLogDir.existingClaim Provide an existing `PersistentVolumeClaim` for Zookeeper's Data log directory
     ## If defined, PVC must be created manually before volume will be bound
     ## The value is evaluated as a template
@@ -493,7 +493,7 @@ persistence:
 volumePermissions:
   ## @param volumePermissions.enabled Enable init container that changes the owner and group of the persistent volume(s) mountpoint to `runAsUser:fsGroup`
   ##
-  enabled: false
+  enabled: true
   ## @param volumePermissions.image.registry Init container volume-permissions image registry
   ## @param volumePermissions.image.repository Init container volume-permissions image repository
   ## @param volumePermissions.image.tag Init container volume-permissions image tag (immutable tags are recommended)
