@@ -1238,7 +1238,7 @@ provisioning:
 zookeeper:
   ## @param zookeeper.enabled Switch to enable or disable the Zookeeper helm chart
   ##
-  enabled: true
+  enabled: false
   auth:
     ## @param zookeeper.auth.enabled Enable Zookeeper auth
     ##
