@@ -30,9 +30,9 @@ kind: PersistentVolume
 metadata:
   name: data-zookeeper-0
 spec:
-  storageClassName: zookeeper-sc
+  storageClassName: kafka-sc
   capacity:
-    storage: 1Gi
+    storage: 2Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
