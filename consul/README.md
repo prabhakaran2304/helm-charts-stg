@@ -14,8 +14,6 @@ The Kubernetes namespace you are installing into, Helm release name, and ordinal
 ```data-vault-consul-consul-server-0
 data-vault-consul-consul-server-1
 data-vault-consul-consul-server-2
-data-vault-consul-consul-server-3
-data-vault-consul-consul-server-4
 ```
 
 You can use kubectl exec to get direct access to any container, including the Consul server. Use this command to check for a list of Consul's servers and clients. Consul servers configure and control the service mesh, while clients help with service discovery.
