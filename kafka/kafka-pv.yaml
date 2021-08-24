@@ -28,9 +28,9 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: data-kafka-zookeeper-volume-0
+  name: data-zookeeper-0
 spec:
-  storageClassName: kafka-sc
+  storageClassName: zookeeper-sc
   capacity:
     storage: 1Gi
   accessModes:
