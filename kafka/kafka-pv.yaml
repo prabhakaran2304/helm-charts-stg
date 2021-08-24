@@ -1,0 +1,26 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: data-kafka-volume-0
+spec:
+  storageClassName: kafka-sc
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /home/infrausr/data-kafka-volume-0
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: data-kafka-volume-1
+spec:
+  storageClassName: kafka-sc
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /home/infrausr/data-kafka-volume-1
