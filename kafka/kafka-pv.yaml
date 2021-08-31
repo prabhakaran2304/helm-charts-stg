@@ -11,6 +11,9 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: /home/infrausr/data-kafka-volume-0
+  claimRef:
+    name: data-kafka-volume-0
+    namespace: kafka
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -24,3 +27,6 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: /home/infrausr/data-kafka-volume-1
+  claimRef:
+    name: data-kafka-volume-1
+    namespace: kafka
