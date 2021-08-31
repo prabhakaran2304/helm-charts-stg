@@ -30,3 +30,19 @@ spec:
   claimRef:
     name: data-kafka-volume-1
     namespace: kafka
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: data-kafka-kafka-volume-2
+spec:
+  storageClassName: kafka-sc
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /home/infrausr/data-kafka-volume-2
+  claimRef:
+    name: data-kafka-volume-2
+    namespace: kafka
