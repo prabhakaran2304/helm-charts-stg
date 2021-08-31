@@ -10,3 +10,11 @@ items:
   kind: Namespace
   metadata:
       name: consul
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+      name: zookeeper
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+      name: kafka
