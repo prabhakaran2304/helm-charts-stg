@@ -23,3 +23,16 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: /home/infrausr/data-zookeeper-1
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: data-zookeeper-zookeeper-zookeeper-2
+spec:
+  storageClassName: zookeeper-sc
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /home/infrausr/data-zookeeper-2
