@@ -11,7 +11,7 @@ spec:
   hostPath:
     path: /home/infrausr/redis-cluster-master-0
   claimRef:
-    name: redis-data-redis-master-0
+    name: redis-data-master-0
     namespace: redis
 ---
 apiVersion: v1
@@ -27,7 +27,7 @@ spec:
   hostPath:
     path: /home/infrausr/redis-cluster-slave-0
   claimRef:
-    name: redis-data-redis-replicas-0
+    name: redis-data-replicas-0
     namespace: redis
 ---
 apiVersion: v1
@@ -43,5 +43,5 @@ spec:
   hostPath:
     path: /home/infrausr/redis-cluster-slave-1
   claimRef:
-    name: redis-data-redis-replicas-1
+    name: redis-data-replicas-1
     namespace: redis
