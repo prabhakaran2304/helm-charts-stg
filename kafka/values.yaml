@@ -1260,4 +1260,4 @@ zookeeper:
 externalZookeeper:
   ## @param externalZookeeper.servers Server or list of external Zookeeper servers to use
   ##
-  servers: []
+  servers: [zookepeer-zookeeper.zookeeper.svc.cluster.local]
