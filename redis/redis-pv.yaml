@@ -45,19 +45,3 @@ spec:
   claimRef:
     name: redis-data-redis-replicas-1
     namespace: redis
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: redis-data-redis-slave-2
-spec:
-  storageClassName: redis-sc
-  capacity:
-    storage: 2Gi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: /home/infrausr/redis-cluster-slave-2
-  claimRef:
-    name: redis-data-redis-replicas-2
-    namespace: redis  
