@@ -10,6 +10,9 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: /home/infrausr/data-zookeeper-0
+  claimRef:
+    name: data-zookepeer-zookeeper-0
+    namespace: zookeeper
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -23,6 +26,9 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: /home/infrausr/data-zookeeper-1
+  claimRef:
+    name: data-zookepeer-zookeeper-1
+    namespace: zookeeper
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -36,3 +42,6 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: /home/infrausr/data-zookeeper-2
+  claimRef:
+    name: data-zookepeer-zookeeper-2
+    namespace: zookeeper
