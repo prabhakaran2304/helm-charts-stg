@@ -53,7 +53,7 @@ metadata:
 spec:
   storageClassName: redis-sc
   capacity:
-    storage: 4Gi
+    storage: 2Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
