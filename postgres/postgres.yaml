@@ -1,0 +1,76 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: postgres
+  namespace: postgres
+spec:
+  selector:
+    app: postgres
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 5432
+    targetPort: 5432
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+  namespace: postgres
+spec:
+  selector:
+    matchLabels:
+      app: postgres
+  replicas: 1
+  template:
+    metadata:
+      namespace: postgres
+      labels:
+        app: postgres
+    spec:
+      hostname: postgres
+      containers:
+      - name: postgres
+        image: postgres:12
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: data
+        env:
+        - name: POSTGRES_PASSWORD
+          # may be removed and replaced by secret reference, as set below
+          value: post321
+          # you may use volume secret instead of explicit password value
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secrets
+              key: POSTGRES_DB_ADMINPWD
+              optional: true
+        envFrom:
+        - configMapRef:
+            name: postgres-config
+        ports:
+        - containerPort: 5432
+      volumes:
+        - name: data
+          hostPath:
+            # directory location on host
+            # that is where all GCXI reporting data are actually stored!
+            # you should either configure this directory as shared between cluster nodes
+            # or make sure that Postgres container is running on the very node where this directory resides
+            path: /home/infrausr/postgres-data
+            # this field is optional
+            type: DirectoryOrCreate
+
+      ## nodeSelector example ##
+      # Postgres container must have an access to its data volume, where all GCXI data is stored
+      # if you are going to use local host storage (not a shared one) for this volume,
+      # then you'll need to tie Postgres container's execution to this particular host
+      # in k8s this can be done thru nodeSelector mechanism
+      # node selector instructs k8s to run Postgres container on the host where a specified label has been set
+      # you'll need to put this label on your desired node first, see
+      # https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/#add-a-label-to-a-node
+      # this particular label definition 'postgres/role=postgres-db' is merely an example
+      # you can modify it according to your environment needs
+      # nodeSelector:
+      #   postgres/role: postgres-db
