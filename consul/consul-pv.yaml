@@ -5,11 +5,14 @@ metadata:
 spec:
   storageClassName: consul-sc
   capacity:
-    storage: 2Gi
+    storage: 1Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
     path: /home/infrausr/data-consul-consulsrv-consul-server-0
+  claimRef:
+    name: data-consulsrv-0
+    namespace: consul
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -18,11 +21,14 @@ metadata:
 spec:
   storageClassName: consul-sc
   capacity:
-    storage: 2Gi
+    storage: 1Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
     path: /home/infrausr/data-consul-consulsrv-consul-server-1
+  claimRef:
+    name: data-consulsrv-1
+    namespace: consul
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -31,8 +37,11 @@ metadata:
 spec:
   storageClassName: consul-sc
   capacity:
-    storage: 2Gi
+    storage: 1Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
     path: /home/infrausr/data-consul-consulsrv-consul-server-2
+  claimRef:
+    name: data-consulsrv-2
+    namespace: consul
