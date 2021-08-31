@@ -5,11 +5,14 @@ metadata:
 spec:
   storageClassName: redis-sc
   capacity:
-    storage: 4Gi
+    storage: 2Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
     path: /home/infrausr/redis-cluster-master-0
+  claimRef:
+    name: redis-data-redis-master-0
+    namespace: redis
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -18,11 +21,14 @@ metadata:
 spec:
   storageClassName: redis-sc
   capacity:
-    storage: 4Gi
+    storage: 2Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
     path: /home/infrausr/redis-cluster-slave-0
+  claimRef:
+    name: redis-data-redis-replicas-0
+    namespace: redis
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -31,11 +37,14 @@ metadata:
 spec:
   storageClassName: redis-sc
   capacity:
-    storage: 4Gi
+    storage: 2Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
     path: /home/infrausr/redis-cluster-slave-1
+  claimRef:
+    name: redis-data-redis-replicas-1
+    namespace: redis
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -49,3 +58,6 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: /home/infrausr/redis-cluster-slave-2
+  claimRef:
+    name: redis-data-redis-replicas-2
+    namespace: redis  
