@@ -12,7 +12,7 @@ spec:
   hostPath:
     path: /home/infrausr/data-kafka-volume-0
   claimRef:
-    name: data-kafka-volume-0
+    name: data-kafka-0
     namespace: kafka
 ---
 apiVersion: v1
@@ -28,7 +28,7 @@ spec:
   hostPath:
     path: /home/infrausr/data-kafka-volume-1
   claimRef:
-    name: data-kafka-volume-1
+    name: data-kafka-1
     namespace: kafka
 ---
 apiVersion: v1
@@ -44,5 +44,5 @@ spec:
   hostPath:
     path: /home/infrausr/data-kafka-volume-2
   claimRef:
-    name: data-kafka-volume-2
+    name: data-kafka-2
     namespace: kafka
