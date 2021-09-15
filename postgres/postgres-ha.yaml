@@ -45,7 +45,16 @@ spec:
           name: dbdata
           subPath: postgres
       restartPolicy: Always
+      #volumes:
+      #- name: dbdata
+      #  persistentVolumeClaim:
+      #    claimName: dbdata
       volumes:
       - name: dbdata
-        persistentVolumeClaim:
-          claimName: dbdata
+        hostPath:
+          path: /home/infrausr/postgres/data
+          type: DirectoryOrCreate
+      nodeSelector:
+        dbdata/role: postgres-db
+      
+
