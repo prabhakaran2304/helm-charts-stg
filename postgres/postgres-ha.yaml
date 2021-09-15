@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+  labels: 
+    app: postgres
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: postgres
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - env:
+        - name: POSTGRES_DB
+          value: maindb
+        - name: POSTGRES_PASSWORD
+          value: post321
+        - name: POSTGRES_USER
+          value: admin
+        image: postgres:12
+        name: postgres
+        # Readiness and Liveness Probe
+        readinessProbe:
+          exec:
+            command: ["psql", "-Uadmin", "-dmaindb", "-c", "SELECT 1"]
+          initialDelaySeconds: 10
+          timeoutSeconds: 10
+        livenessProbe:
+          exec:
+            command: ["psql", "-Uadmin", "-dmaindb", "-c", "SELECT 1"]
+          initialDelaySeconds: 30
+          timeoutSeconds: 10
+        ports:
+          - containerPort: 5432        
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: dbdata
+          subPath: postgres
+      restartPolicy: Always
+      volumes:
+      - name: dbdata
+        persistentVolumeClaim:
+          claimName: dbdata
