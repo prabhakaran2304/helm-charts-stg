@@ -38,7 +38,7 @@ spec:
         env:
         - name: POSTGRES_PASSWORD
           # may be removed and replaced by secret reference, as set below
-          value: post321
+          value: post@321
           # you may use volume secret instead of explicit password value
         - name: POSTGRES_PASSWORD
           valueFrom:
