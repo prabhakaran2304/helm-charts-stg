@@ -14,19 +14,3 @@ spec:
   claimRef:
     name: dbdata
     namespace: postgres
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: postgres-postgres-dbdata
-spec:
-  storageClassName: postgres-sc
-  capacity:
-    storage: 2Gi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: /home/infrausr/postgresdb
-  claimRef:
-    name: dbdata
-    namespace: postgres
