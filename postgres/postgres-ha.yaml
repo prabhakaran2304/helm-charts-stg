@@ -48,4 +48,4 @@ spec:
       volumes:
       - name: dbdata
         persistentVolumeClaim:
-          claimName: dbdata
+          claimName: postgres-sc
