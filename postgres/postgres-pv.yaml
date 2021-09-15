@@ -12,5 +12,5 @@ spec:
   hostPath:
     path: /home/infrausr/postgresdb
   claimRef:
-    name: dbdata
+    name: postgres-postgres-dbdata
     namespace: postgres
