@@ -492,7 +492,7 @@ coordinating:
   fullnameOverride: ""
   ## @param coordinating.replicas Desired number of Elasticsearch coordinating-only nodes
   ##
-  replicas: 2
+  replicas: 1
   ## @param coordinating.hostAliases Add deployment host aliases
   ## https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/
   ##
