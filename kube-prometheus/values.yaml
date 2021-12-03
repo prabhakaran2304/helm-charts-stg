@@ -1650,7 +1650,7 @@ kubeControllerManager:
     selector: {}
   serviceMonitor:
     ## @param kubeControllerManager.serviceMonitor.interval Scrape interval (use by default, falling back to Prometheus' default)
-    ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#endpoint
+    ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#endpoint#
     ##
     interval: ""
     ## @param kubeControllerManager.serviceMonitor.https Enable scraping kube-controller-manager over https
