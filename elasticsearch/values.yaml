@@ -235,7 +235,7 @@ master:
   ## https://www.elastic.co/guide/en/elasticsearch/reference/7.x/modules-discovery-voting.html#_even_numbers_of_master_eligible_nodes
   ## https://www.elastic.co/guide/en/elasticsearch/reference/7.x/modules-discovery-quorums.html#modules-discovery-quorums
   ##
-  replicas: 3
+  replicas: 1
   ## Update strategy for ElasticSearch master statefulset
   ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#update-strategies
   ## @param master.updateStrategy.type Update strategy for Master statefulset
@@ -957,7 +957,7 @@ ingest:
   fullnameOverride: ""
   ## @param ingest.replicas Desired number of Elasticsearch ingest nodes
   ##
-  replicas: 2
+  replicas: 1
   ## Update strategy for ElasticSearch ingest statefulset
   ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#update-strategies
   ## @param ingest.updateStrategy.type Update strategy for Ingest statefulset
