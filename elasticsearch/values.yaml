@@ -19,7 +19,7 @@ global:
   storageClass: ""
   coordinating:
     name: coordinating-only
-  kibanaEnabled: false
+  kibanaEnabled: true
 
 ## @section Common parameters
 
@@ -477,7 +477,7 @@ master:
   ##
   autoscaling:
     enabled: false
-    minReplicas: 2
+    minReplicas: 1
     maxReplicas: 11
     targetCPU: ""
     targetMemory: ""
@@ -713,7 +713,7 @@ data:
   fullnameOverride: ""
   ## @param data.replicas Desired number of Elasticsearch data nodes
   ##
-  replicas: 2
+  replicas: 1
   ## @param data.hostAliases Add deployment host aliases
   ## https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/
   ##
