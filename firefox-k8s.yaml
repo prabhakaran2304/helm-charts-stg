@@ -21,7 +21,7 @@ spec:
         ports:
         - containerPort: 5900
       nodeSelector:
-        networking: host
+        #networking: host
         bowser: firefox
 ---
 apiVersion: v1
