@@ -412,7 +412,7 @@ master:
     ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
     ##   GKE, AWS & OpenStack)
     ##
-    storageClass: ""
+    storageClass: "elk-sc"
     ## @param master.persistence.existingClaim Existing Persistent Volume Claim
     ## then accept the value as an existing Persistent Volume Claim to which
     ## the container should be bound
@@ -436,7 +436,7 @@ master:
       - ReadWriteOnce
     ## @param master.persistence.size Persistent Volume Size
     ##
-    size: 8Gi
+    size: 2Gi
   ## Service parameters for master-eligible node(s)
   ##
   service:
@@ -892,7 +892,7 @@ data:
     ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
     ##   GKE, AWS & OpenStack)
     ##
-    storageClass: ""
+    storageClass: "elk-sc"
     ## @param data.persistence.existingClaim Existing Persistent Volume Claim
     ## If persistence is enable, and this value is defined,
     ## then accept the value as an existing Persistent Volume Claim to which
@@ -916,7 +916,7 @@ data:
       - ReadWriteOnce
     ## @param data.persistence.size Persistent Volume Size
     ##
-    size: 8Gi
+    size: 2Gi
   ## Provide functionality to use RBAC
   ##
   serviceAccount:
