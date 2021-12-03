@@ -416,7 +416,7 @@ prometheus:
   service:
     ## @param prometheus.service.type Kubernetes service type
     ##
-    type: ClusterIP
+    type: nodePort
     ## @param prometheus.service.port Prometheus service port
     ##
     port: 9090
