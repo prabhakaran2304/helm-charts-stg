@@ -22,7 +22,7 @@ spec:
         - containerPort: 5900
       nodeSelector:
         networking: host
-        node-role.kubernetes.io/master: master
+        bowser: firefox
 ---
 apiVersion: v1
 kind: Service
